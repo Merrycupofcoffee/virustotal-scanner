@@ -10,3 +10,8 @@ def get_api_key():
 def user_input():
     return input("🧪 Please enter a hash, URL, or IP address to check: ").strip()
 
+def detect_input_type(value):
+    if len(value) == 64 and all(c in "0123456789abcdef" for c in value.lower()):
+        return "hash"
+    else:
+        return "unknown"
