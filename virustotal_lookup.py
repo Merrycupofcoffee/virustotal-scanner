@@ -21,7 +21,7 @@ def detect_input_type(value):
     else:
         return "unknown"
 
-# Function to concatenate the api on to the url for virus total
+# Function to concatenate the user input on to the url for virus total
 def format_url(input_value, input_type):
     if input_type == "hash":
         return f"https://www.virustotal.com/api/v3/files/{input_value}"
