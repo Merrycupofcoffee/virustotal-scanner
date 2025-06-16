@@ -13,5 +13,7 @@ def user_input():
 def detect_input_type(value):
     if len(value) == 64 and all(c in "0123456789abcdef" for c in value.lower()):
         return "hash"
+    elif "." in value and all(c.isdigit() or c == '.' for c in value):
+        return "ip"
     else:
         return "unknown"
