@@ -10,6 +10,7 @@ def get_api_key():
 def user_input():
     return input("🧪 Please enter a hash, URL, or IP address to check: ").strip()
 
+# Function to get User Input and validate what type of input it is
 def detect_input_type(value):
     if len(value) == 64 and all(c in "0123456789abcdef" for c in value.lower()):
         return "hash"
@@ -19,3 +20,16 @@ def detect_input_type(value):
         return "url"
     else:
         return "unknown"
+
+# Function to concatenate the api on to the url for virus total
+def format_url(input_value, input_type):
+    if input_type == "hash":
+        return f"https://www.virustotal.com/api/v3/files/{input_value}"
+    elif input_type == "ip":
+        return f"https://www.virustotal.com/api/v3/ip_addresses/{input_value}"
+    elif input_type == "url":
+        url_id = base64.urlsafe_b64encode(input_value.encode()).decode().strip("=")
+        return f"https://www.virustotal.com/api/v3/urls/{url_id}"
+    else:
+        return None
+    
