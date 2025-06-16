@@ -15,5 +15,7 @@ def detect_input_type(value):
         return "hash"
     elif "." in value and all(c.isdigit() or c == '.' for c in value):
         return "ip"
+    elif value.startswith("http://") or value.startswith("https://"):
+        return "url"
     else:
         return "unknown"
