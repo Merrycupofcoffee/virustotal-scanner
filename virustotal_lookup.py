@@ -32,4 +32,16 @@ def format_url(input_value, input_type):
         return f"https://www.virustotal.com/api/v3/urls/{url_id}"
     else:
         return None
-    
+
+# Funtion to display results from the API response    
+def display_results(response_json):
+    stats = response_json.get("data", {}).get("attributes", {}).get("last_analysis_stats", {})
+    print("\nAnalysis Results:")
+    for key, val in stats.items():
+        print(f"{key.capitalize():<12}: {val}")
+
+    malicious = stats.get("malicious", 0)
+    suspicious = stats.get("suspicious", 0)
+
+    if malicious > 0:
+        print("\nVerdict: MALICIOUS")
