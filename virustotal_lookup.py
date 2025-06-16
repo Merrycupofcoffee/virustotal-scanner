@@ -45,3 +45,7 @@ def display_results(response_json):
 
     if malicious > 0:
         print("\nVerdict: MALICIOUS")
+    elif suspicious > 0:
+        print("\nVerdict: SUSPICIOUS")
+    else:
+        print("\nVerdict: CLEAN")
