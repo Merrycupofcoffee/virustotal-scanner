@@ -78,5 +78,7 @@ def main():
 
     query_virustotal(api_key, input_value, input_type)
 
+    input("\nPress Enter to exit...")
+
 if __name__ == "__main__":
     main()
