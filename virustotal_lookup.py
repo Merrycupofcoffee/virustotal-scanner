@@ -8,7 +8,7 @@ def get_api_key():
 
 # Function to get User Input
 def user_input():
-    return input("🧪 Please enter a hash, URL, or IP address to check: ").strip()
+    return input("Please enter a hash, URL, or IP address to check: ").strip()
 
 # Function to get User Input and validate what type of input it is
 def detect_input_type(value):
