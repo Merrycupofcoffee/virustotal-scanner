@@ -44,8 +44,8 @@ def format_url(input_value, input_type):
 def display_results(response_json):
     stats = response_json.get("data", {}).get("attributes", {}).get("last_analysis_stats", {})
     print("\nAnalysis Results:")
-    for key, val in stats.items():
-        print(f"{key.capitalize():<12}: {val}")
+    for key, value in stats.items():
+        print(f"{key.capitalize():<12}: {value}")
 
     malicious = stats.get("malicious", 0)
     suspicious = stats.get("suspicious", 0)
