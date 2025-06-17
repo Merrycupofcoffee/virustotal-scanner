@@ -71,3 +71,7 @@ def main():
     api_key = get_api_key()
     input_value = user_input()
     input_type = detect_input_type(input_value)
+
+    if input_type == "unknown":
+        print("Unable to detect input type (not a valid hash, IP, or URL).")
+        return
