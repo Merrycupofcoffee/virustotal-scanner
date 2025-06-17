@@ -57,3 +57,9 @@ def query_virustotal(api_key, input_value, input_type):
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         display_results(response.json())
+    elif response.status_code == 404:
+        print("No results found for this input.")
+    elif response.status_code == 401:
+        print("Invalid API Key.")
+    else:
+        print(f"Error {response.status_code}: {response.text}")
