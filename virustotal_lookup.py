@@ -12,8 +12,15 @@ def user_input():
 
 # Function to get User Input and validate what type of input it is
 def detect_input_type(value):
-    if len(value) == 64 and all(c in "0123456789abcdef" for c in value.lower()):
-        return "hash"
+
+    hex_chars = "0123456789abcdefABCDEF"
+
+    if len(value) == 32 and all(c in hex_chars for c in value):
+        return "hash"  # MD5
+    elif len(value) == 40 and all(c in hex_chars for c in value):
+        return "hash"  # SHA1
+    elif len(value) == 64 and all(c in hex_chars for c in value):
+        return "hash"  # SHA256
     elif "." in value and all(c.isdigit() or c == '.' for c in value):
         return "ip"
     elif value.startswith("http://") or value.startswith("https://"):
