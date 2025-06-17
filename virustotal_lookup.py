@@ -49,3 +49,11 @@ def display_results(response_json):
         print("\nVerdict: SUSPICIOUS")
     else:
         print("\nVerdict: CLEAN")
+
+def query_virustotal(api_key, input_value, input_type):
+    url = format_url(input_value, input_type)
+    headers = {"x-apikey": api_key}
+
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        display_results(response.json())
