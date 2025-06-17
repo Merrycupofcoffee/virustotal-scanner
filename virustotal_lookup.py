@@ -69,5 +69,5 @@ def query_virustotal(api_key, input_value, input_type):
 def main():
     print("=== VirusTotal Scanner ===")
     api_key = get_api_key()
-    input_value = get_user_input()
+    input_value = user_input()
     input_type = detect_input_type(input_value)
