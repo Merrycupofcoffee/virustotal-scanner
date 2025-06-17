@@ -2,6 +2,8 @@
 import requests
 import base64
 
+# My VirusTotoal API Key: 9b098068923b3ce794f81b553e13c45f7914accfc08831278ce29b33ad24fe14
+
 # Function to get API Key from user
 def get_api_key():
     return input("Please enter your VirusTotal API Key: ").strip()
@@ -76,16 +78,20 @@ def query_virustotal(api_key, input_value, input_type):
 def main():
     print("=== VirusTotal Scanner ===")
     api_key = get_api_key()
-    input_value = user_input()
-    input_type = detect_input_type(input_value)
 
-    if input_type == "unknown":
-        print("Unable to detect input type (not a valid hash, IP, or URL).")
-        return
+    while True:
+        input_value = user_input()
+        input_type = detect_input_type(input_value)
 
-    query_virustotal(api_key, input_value, input_type)
+        if input_type == "unknown":
+            print("Unable to detect input type (not a valid hash, IP, or URL).")
+        else:
+            query_virustotal(api_key, input_value, input_type)
 
-    input("\nPress Enter to exit...")
+        choice = input("\nPress 1 to scan another hash / IP / URL, or press Enter to exit: ").strip()
+        if choice != "1":
+            print("Goodbye!")
+            break
 
 if __name__ == "__main__":
     main()
