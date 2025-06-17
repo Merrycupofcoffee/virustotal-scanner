@@ -50,6 +50,7 @@ def display_results(response_json):
     else:
         print("\nVerdict: CLEAN")
 
+# Funtion to query VirusTotal API
 def query_virustotal(api_key, input_value, input_type):
     url = format_url(input_value, input_type)
     headers = {"x-apikey": api_key}
@@ -63,3 +64,10 @@ def query_virustotal(api_key, input_value, input_type):
         print("Invalid API Key.")
     else:
         print(f"Error {response.status_code}: {response.text}")
+
+# Main
+def main():
+    print("=== VirusTotal Scanner ===")
+    api_key = get_api_key()
+    input_value = get_user_input()
+    input_type = detect_input_type(input_value)
