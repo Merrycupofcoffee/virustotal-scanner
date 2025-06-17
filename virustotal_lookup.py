@@ -75,3 +75,8 @@ def main():
     if input_type == "unknown":
         print("Unable to detect input type (not a valid hash, IP, or URL).")
         return
+
+    query_virustotal(api_key, input_value, input_type)
+
+if __name__ == "__main__":
+    main()
