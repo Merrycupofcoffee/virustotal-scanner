@@ -81,7 +81,7 @@ def display_results(response_json):
     else:
         print("\nVerdict: CLEAN")
 
-# Funtion to query VirusTotal API
+# Function to query VirusTotal API
 def query_virustotal(api_key, input_value, input_type):
 
     url = format_url(input_value, input_type)
